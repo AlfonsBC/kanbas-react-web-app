@@ -10,7 +10,6 @@ export default function Labs() {
         <div id="wd-labs">
             <h1>Labs</h1>
             <p>CS5610-Summer1-2024: Alfonso Barajas Cervantes</p>
-            <p>Link to code: <a href="https://alfonsbc.github.io/">Github Repository</a></p>
             <TOC />
       <Routes>
         <Route path="/" element={<Navigate to="Lab1" />} />

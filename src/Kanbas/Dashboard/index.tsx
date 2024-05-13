@@ -5,7 +5,7 @@ export default function Dashboard() {
         <h2 id="wd-dashboard-published">Published Courses (12)</h2> <hr />
         <div id="wd-dashboard-courses">
           <div className="wd-dashboard-course">
-            <img src="/images/reactjs.jpg" width={200} alt="image course"/>
+            <img src="/images/reactjs.jpg" width={200} alt="react js"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12341/Home">
@@ -18,7 +18,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/a.jpeg" width={200}  alt="image course for one"  />
+            <img src="/images/a.jpeg" width={200}  alt="genomics"  />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12342/Home">
@@ -31,7 +31,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/a.jpg" width={200}  alt="image course two" />
+            <img src="/images/a.jpg" width={200}  alt="bio informatics for dummies" />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12343/Home">
@@ -44,7 +44,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/b.jpg" width={200}   alt="image course tres"/>
+            <img src="/images/b.jpg" width={200}   alt="proteomics for dummies"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12344/Home">
@@ -57,7 +57,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/c.jpg" width={200}  alt="image course for four"/>
+            <img src="/images/c.jpg" width={200}  alt="cellular division course"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12345/Home">
@@ -70,7 +70,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/d.jpg" width={200}  alt="image course cinco"/>
+            <img src="/images/d.jpg" width={200}  alt="neuro science for dummies"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12346/Home">
@@ -83,7 +83,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/teslabot.jpg" width={200}  alt="image course seis"/>
+            <img src="/images/teslabot.jpg" width={200}  alt="artificail intelligence"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12347/Home">
