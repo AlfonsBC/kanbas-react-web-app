@@ -18,7 +18,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/a.jpeg" width={200}  alt="image course" />
+            <img src="/images/a.jpeg" width={200}  alt="image course for one"  />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12342/Home">
@@ -31,7 +31,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/a.jpg" width={200}  alt="image course" />
+            <img src="/images/a.jpg" width={200}  alt="image course two" />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12343/Home">
@@ -44,7 +44,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/b.jpg" width={200}   alt="image course"/>
+            <img src="/images/b.jpg" width={200}   alt="image course tres"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12344/Home">
@@ -57,7 +57,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/c.jpg" width={200}  alt="image course"/>
+            <img src="/images/c.jpg" width={200}  alt="image course for four"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12345/Home">
@@ -70,7 +70,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/d.jpg" width={200}  alt="image course"/>
+            <img src="/images/d.jpg" width={200}  alt="image course cinco"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12346/Home">
@@ -83,7 +83,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="wd-dashboard-course">
-            <img src="/images/teslabot.jpg" width={200}  alt="image course"/>
+            <img src="/images/teslabot.jpg" width={200}  alt="image course seis"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/12347/Home">
