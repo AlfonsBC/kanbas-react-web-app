@@ -1,0 +1,11 @@
+div#wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    padding: 0px;  margin: 0px;
+    width: 80px;
+  }
+  
+.list-group > .list-group-item.wd-active {
+    background-color: white;
+    color: red;
+}

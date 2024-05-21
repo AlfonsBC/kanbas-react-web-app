@@ -1,0 +1,22 @@
+#wd-percentage-assignment{
+    color: gray;
+}
+.wd-assignments > .wd-assignment {
+    border-left: 5px solid green !important;
+}
+
+#wd-search-assignments {
+    width: 250px;
+    height: 45px;
+    font-size:x-large;
+    border-color: lightblue;
+}
+
+#wd-assignment-text {
+    font-size:smaller
+}
+
+#wd-description-assignment{
+    height:900;
+    width: 100%;
+}
