@@ -35,7 +35,7 @@ export default function Assignments() {
       {assignment.title}
     </Link>
     <br/>
-      <span className="text-danger">Multiple Modules </span>| <strong>Not available until</strong> May 6 at 12:00am | <br/> <strong>Due</strong> May 13 at 11:59pm | 100pts
+      <span className="text-danger">Multiple Modules </span>| <strong>Not available until</strong> {assignment.available_date} at 12:00am | <br/> <strong>Due</strong> {assignment.due_date} at 11:59pm | {assignment.points}pts
       </div>
       <div className="col-2 pt-4">
       <AssignmentControlButtons/>
