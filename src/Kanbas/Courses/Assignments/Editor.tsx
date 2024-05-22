@@ -1,23 +1,18 @@
 import "./index.css"
+import {useParams} from "react-router";
+import {assignments} from "../../Database";
+import { Link } from "react-router-dom";
 export default function AssignmentEditor() {
-    return (
+  const { aid, cid} = useParams();
+  const specificAssignment = assignments.filter((assignment) => assignment._id === aid);
+  console.log(specificAssignment);  
+  return (
       <div id="wd-assignments-editor">
         <form>
         <label htmlFor="wd-name">Assignment Name</label>
-        <input id="wd-name" className="form-control"  value="A1 - ENV + HTML" />
+        <input id="wd-name" className="form-control"  value={`${specificAssignment[0].title}`} />
         <br />
-        <textarea id="wd-description-assignment" className="form-control h-25">
-        The assignment is available onlineLinks to an external site.
-
-Submit a link to the landing page of your Web application running on Netlify.
-
-The landing page should include the following:
-
-Your full name and section
-Links to each of the lab assignments
-Link to the Kanbas application
-Links to all relevant source code repositories
-The Kanbas application should include a link to navigate back to the landing page.
+        <textarea id="wd-description-assignment" className="form-control h-25" value={`${specificAssignment[0].description}`}>
         </textarea>
         <br />
         <div className="row mb-3">
@@ -25,7 +20,7 @@ The Kanbas application should include a link to navigate back to the landing pag
         <label htmlFor="wd-points" className="col-sm-2 col-form-label float-end">Points</label>
         </div>
         <div className="col-sm-6">
-        <input id="wd-points" className="form-control" value={100} />
+        <input id="wd-points" className="form-control" value={`${specificAssignment[0].points}`} />
         </div></div> 
 <div className="row mb-3">
         <div className="col-sm-5">
@@ -44,6 +39,7 @@ The Kanbas application should include a link to navigate back to the landing pag
         </div>
         <div className="col-sm-6">
         <select id="wd-display-grade-as" className="form-control">
+      <option value="points">Points</option>
       <option value="percentage">Percentage</option>
       <option value="Numerical">Numerical</option>
       <option value="Ratio">Ratio</option>
@@ -86,20 +82,20 @@ name="wd-submission-type" id="wd-file-upload"/>
         <label htmlFor="wd-due-date">Due </label><br/>
 <input type="date"
     id="wd-due-date" 
-    value="2024-05-13" />
+    value={`${specificAssignment[0].due_date}`} />
 <br/>
 <label htmlFor="wd-available-from">Available from</label><br/>
 <input type="date"
     id="wd-available-from" 
-    value="2024-05-06" />
+    value={`${specificAssignment[0].available_date}`} />
     <br/>
 <label htmlFor="wd-available-until">Until</label><br/>
 <input type="date"
 id="wd-available-until" 
-value="2024-05-20" />
+value={`${specificAssignment[0].until}`} />
         </div></div> 
-<button type="submit" className="btn btn-danger float-end">Cancel</button>
-<button type="submit" className="btn btn-success float-end">Save</button>
+        <Link key={`#/Kanbas/Courses/${cid}/Assignments/${aid}`} to={``} className="btn btn-success float-end">Save</Link>
+        <Link  key={`${cid}/Assignments/${aid}`} to={`../Assignments/`}  className="btn btn-danger float-end">Cancel</Link>
              </form>
       </div>
 

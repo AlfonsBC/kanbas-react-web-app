@@ -2,17 +2,22 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
+import {useParams} from "react-router";
+import {Link, useLocation} from "react-router-dom";
 import "./index.css"
 export default function CoursesNavigation() {
+    const { cid } = useParams();
+    const { pathname } = useLocation();
+    const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades"];
     return (
       <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
-              <a id="wd-course-home-link" className="list-group-item active boder border-0"   href="#/Kanbas/Courses/1234/Home">Home</a>
-        <a id="wd-course-modules-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Modules">Modules</a>
-          <a id="wd-course-piazza-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Piazza">Piazza</a>
-              <a id="wd-course-zoom-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Zoom">Zoom</a>
-<a id="wd-course-quizzes-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Assignments">Assignments</a>
-    <a id="wd-course-assignments-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Quizzes">Quizzes</a>
-          <a id="wd-course-grades-link" className="list-group-item text-danger border border-0" href="#/Kanbas/Courses/1234/Grades">Grades</a>
+        {links.map((link) => (
+            <Link key={`#Kanbas/Courses/${cid}/${link}`} to={`${link}`} 
+                className={`list-group-item  border border-0
+                ${pathname.includes(link) ? "active" : "text-danger" }`} >
+            {link}
+            </Link>
+        ))}   
       </div>
   );}
   
