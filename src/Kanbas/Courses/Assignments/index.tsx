@@ -1,5 +1,6 @@
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import AssignmentControlButtonsLeft from "./AssignmentControlButtonsLeft";
+import AssignmentEliminate from "./AssignmentEliminate";
 import AssignControls from "./AssignControls";
 import TopControlButtons from "./TopControlButtons";
 import { BsGripVertical } from "react-icons/bs";
@@ -44,6 +45,9 @@ export default function Assignments() {
           assignmentId={assignment._id}
           deleteAssignment={(assignmentId) => {dispatch(deleteAssignment(assignmentId));}}
           editAssignment={(assignmentId) => {dispatch(editAssignment(assignmentId));}}/>
+
+    <AssignmentEliminate assignmentId={assignment._id} deleteAssignment={(assignmentId) => {dispatch(deleteAssignment(assignmentId));}}/>
+
       </div>
       </div>
      </li>

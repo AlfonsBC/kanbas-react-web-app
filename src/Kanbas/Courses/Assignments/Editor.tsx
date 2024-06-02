@@ -155,7 +155,7 @@ onChange={(e) =>
   }/>
         </div></div> 
         
-        <button className="btn btn-success float-end" onClick={() => {
+        <button className="btn btn-success float-end fs-4" onClick={() => {
           if (specificAssignment[0].editing === true){
             dispatch(updateAssignment({...specificAssignment[0], 
                                         title: titlea,
@@ -169,7 +169,7 @@ onChange={(e) =>
         to={`../Assignments`} >Save</Link></button>
 
 
-        <button className="btn btn-danger float-end" onClick={() => {
+        <button className="btn btn-danger float-end fs-4 me-2 text-white" onClick={() => {
           if (specificAssignment[0].editing === false){
             dispatch(deleteAssignment(specificAssignment[0]._id));
           } 

@@ -5,7 +5,6 @@ import GreenCheckmark from "./GreenCheckmark";
 import { Link } from "react-router-dom";
 import {useParams} from "react-router";
 import { useSelector} from "react-redux";
-import AssignmentEliminate from "./AssignmentEliminate";
 
 export default function AssignmentControlButtons(
     {assignmentId, deleteAssignment, editAssignment}:{
@@ -26,6 +25,5 @@ return (
 <GreenCheckmark />
 <IoEllipsisVertical className="fs-4" />
 
-<AssignmentEliminate assignmentId={assignmentId} deleteAssignment={deleteAssignment}/>
 </div>
 );}
