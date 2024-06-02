@@ -1,18 +1,45 @@
 import "./index.css"
 import {useParams} from "react-router";
-import {assignments} from "../../Database";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch} from "react-redux";
+import { updateAssignment, deleteAssignment } from "./reducer";
+import { useState } from "react";
 export default function AssignmentEditor() {
   const { aid, cid} = useParams();
-  const specificAssignment = assignments.filter((assignment) => assignment._id === aid);
-  console.log(specificAssignment);  
+  const dispatch = useDispatch();
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const specificAssignment = assignments.filter((assignment:any) => assignment._id === aid);
+  const [titlea, setTitle] = useState(specificAssignment[0].title);
+  const [ descriptiona, setDescription] = useState(specificAssignment[0].description);
+  const [ptsa, setPts] = useState(specificAssignment[0].points)
+  const [dueda, setDued] = useState(specificAssignment[0].due_date);
+  const [avada , setAvad]= useState(specificAssignment[0].available_date);
+  const [unta, setUnt] =  useState(specificAssignment[0].until);
   return (
       <div id="wd-assignments-editor">
         <form>
         <label htmlFor="wd-name">Assignment Name</label>
-        <input id="wd-name" className="form-control"  value={`${specificAssignment[0].title}`} />
+        <input id="wd-name" className="form-control"  placeholder={`${specificAssignment[0].title}`} 
+        onChange={(e) => 
+          {
+            if (specificAssignment[0].editing === false){
+            dispatch(updateAssignment({...specificAssignment[0], title:e.target.value }));
+            } else {
+              setTitle(e.target.value);
+            }
+          }
+          } />
         <br />
-        <textarea id="wd-description-assignment" className="form-control h-25" value={`${specificAssignment[0].description}`}>
+        <textarea id="wd-description-assignment" className="form-control h-25" placeholder={`${specificAssignment[0].description}`}
+        onChange={(e) => 
+          { if (specificAssignment[0].editing === false){
+            dispatch(updateAssignment({...specificAssignment[0], description:e.target.value }));
+          } else {
+            setDescription(e.target.value);
+          }
+          
+          }
+          }>
         </textarea>
         <br />
         <div className="row mb-3">
@@ -20,7 +47,15 @@ export default function AssignmentEditor() {
         <label htmlFor="wd-points" className="col-sm-2 col-form-label float-end">Points</label>
         </div>
         <div className="col-sm-6">
-        <input id="wd-points" className="form-control" value={`${specificAssignment[0].points}`} />
+        <input id="wd-points" className="form-control" placeholder={`${specificAssignment[0].points}`}
+         onChange={(e) => 
+          {if (specificAssignment[0].editing === false){
+            dispatch(updateAssignment({...specificAssignment[0], points:e.target.value }));
+          } else{
+            setPts(e.target.value);
+          }
+          }
+          }/>
         </div></div> 
 <div className="row mb-3">
         <div className="col-sm-5">
@@ -82,20 +117,65 @@ name="wd-submission-type" id="wd-file-upload"/>
         <label htmlFor="wd-due-date">Due </label><br/>
 <input type="date"
     id="wd-due-date" 
-    value={`${specificAssignment[0].due_date}`} />
+    value={`${specificAssignment[0].due_date}`} 
+    onChange={(e) => 
+      {if (specificAssignment[0].editing === false){
+        dispatch(updateAssignment({...specificAssignment[0], due_date:e.target.value }));
+      } else{
+        setDued(e.target.value);
+
+      }
+      }
+      } />
 <br/>
 <label htmlFor="wd-available-from">Available from</label><br/>
 <input type="date"
     id="wd-available-from" 
-    value={`${specificAssignment[0].available_date}`} />
+    value={`${specificAssignment[0].available_date}`} 
+    onChange={(e) => 
+      { if (specificAssignment[0].editing === false){
+        dispatch(updateAssignment({...specificAssignment[0], available_date:e.target.value }));}
+        else{
+          setAvad(e.target.value);
+        }
+      }
+      }/>
     <br/>
 <label htmlFor="wd-available-until">Until</label><br/>
 <input type="date"
 id="wd-available-until" 
-value={`${specificAssignment[0].until}`} />
+value={`${specificAssignment[0].until}`} 
+onChange={(e) => 
+  { if (specificAssignment[0].editing === false){
+    dispatch(updateAssignment({...specificAssignment[0], until:e.target.value }));}
+    else{
+      setUnt(e.target.value);
+    }
+  } 
+  }/>
         </div></div> 
-        <Link key={`#/Kanbas/Courses/${cid}/Assignments/${aid}`} to={``} className="btn btn-success float-end">Save</Link>
-        <Link  key={`${cid}/Assignments/${aid}`} to={`../Assignments/`}  className="btn btn-danger float-end">Cancel</Link>
+        
+        <button className="btn btn-success float-end" onClick={() => {
+          if (specificAssignment[0].editing === true){
+            dispatch(updateAssignment({...specificAssignment[0], 
+                                        title: titlea,
+                                        description: descriptiona,
+                                        points: ptsa,
+                                        due_date: dueda,
+                                        available_date: avada,
+                                        until: unta }));
+          } 
+        }}><Link key={`#/Kanbas/Courses/${cid}/Assignments/${aid}`} 
+        to={`../Assignments`} >Save</Link></button>
+
+
+        <button className="btn btn-danger float-end" onClick={() => {
+          if (specificAssignment[0].editing === false){
+            dispatch(deleteAssignment(specificAssignment[0]._id));
+          } 
+        }}>
+          <Link  key={`${cid}/Assignments/${aid}`} to={`../Assignments/`}  
+        >Cancel</Link></button>
              </form>
       </div>
 

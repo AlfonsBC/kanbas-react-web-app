@@ -1,0 +1,2 @@
+<Link key={`#/Kanbas/Courses/${cid}/Assignments`} to={`${assignment._id}`}>
+</Link>

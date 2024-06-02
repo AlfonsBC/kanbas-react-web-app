@@ -9,9 +9,7 @@ import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 
 export default function Courses({ courses }: { courses: any[]; }) {
   const { cid } = useParams();
-  console.log(cid);
   const course = courses.find((course) => course._id === cid);
-  console.log(course);
   const { pathname } = useLocation();
     return (
       <div id="wd-courses">

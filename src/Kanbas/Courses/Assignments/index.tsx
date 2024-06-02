@@ -6,11 +6,15 @@ import { BsGripVertical } from "react-icons/bs";
 import { GoTriangleDown } from "react-icons/go";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
-import {assignments} from "../../Database";
+import { useDispatch, useSelector } from "react-redux";
+import { editAssignment, deleteAssignment } from "./reducer";
+import { UseDispatch } from "react-redux";
 import "./index.css"
 export default function Assignments() {
   const { cid } = useParams();
-  const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
+  const courseAssignments = assignments.filter((assignment:any) => assignment.course === cid);
     return (
       <div id="wd-assignments">
       <AssignControls /><br /><br /><br /><br />
@@ -24,21 +28,22 @@ export default function Assignments() {
       </div>
       <ul className="wd-assignments list-group rounded-0">
 
-      {courseAssignments.map((assignment) => (
+      {courseAssignments.map((assignment:any) => (
       <li className="wd-assignment list-group-item p-3 ps-1">
         <div className="row">
         <div className="col-2 pt-4">
       <AssignmentControlButtonsLeft/>
       </div>
       <div id="wd-assignment-text" className="col-8 ">
-     <Link key={`#/Kanbas/Courses/${cid}/Assignments`} to={`${assignment._id}`}>
       {assignment.title}
-    </Link>
     <br/>
       <span className="text-danger">Multiple Modules </span>| <strong>Not available until</strong> {assignment.available_date} at 12:00am | <br/> <strong>Due</strong> {assignment.due_date} at 11:59pm | {assignment.points}pts
       </div>
       <div className="col-2 pt-4">
-      <AssignmentControlButtons/>
+      <AssignmentControlButtons
+          assignmentId={assignment._id}
+          deleteAssignment={(assignmentId) => {dispatch(deleteAssignment(assignmentId));}}
+          editAssignment={(assignmentId) => {dispatch(editAssignment(assignmentId));}}/>
       </div>
       </div>
      </li>
