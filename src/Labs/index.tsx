@@ -6,7 +6,7 @@ import TOC from "./TOC";
 import Lab2 from "./Lab2";
 import Lab3 from "./Lab3";
 import Lab4 from "./Lab4";
-import Lab5 from "./Lab5";
+import Lab5 from "./Lab5/index";
 import Lab6 from "./Lab6";
 
 export default function Labs() {
