@@ -5,11 +5,16 @@ import React, {useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
+import * as client from "./client";
 import "./index.css"
 export default function ModulesControls() {
     const { cid } = useParams();
     const dispatch = useDispatch();
     const a_id  = new Date().getTime().toString(); 
+    const createAssignment = async (assigment: any) => {
+        const newModule = await client.createAssignment(cid as string, assigment);
+        dispatch(addAssignment(newModule));
+        };
 return (
 <div id="wd-assigment-controls" className="text-nowrap">
 <div className="row float-start">  
@@ -23,7 +28,7 @@ className="text-secondary position-absolute ps-3 fs-2 mt" />
  </div>
  <button id="wd-add-assignment-btn" className="btn btn-lg btn-danger me-1 float-end" 
         onClick={() => {
-            dispatch(addAssignment({_id: a_id, course:cid }));
+            createAssignment({_id: a_id, course:cid });
             }}>
 <Link key={`#/Kanbas/Courses/${cid}/Assignments`} to={`${a_id}`}>
 <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />

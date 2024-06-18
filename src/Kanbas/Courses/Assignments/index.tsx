@@ -6,15 +6,24 @@ import TopControlButtons from "./TopControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import { GoTriangleDown } from "react-icons/go";
 import {useParams} from "react-router";
+import { useEffect } from "react";
 import {Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { editAssignment, deleteAssignment } from "./reducer";
+import { setAssignments, editAssignment, deleteAssignment } from "./reducer";
 import { UseDispatch } from "react-redux";
+import * as client from "./client";
 import "./index.css"
 export default function Assignments() {
   const { cid } = useParams();
-  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const dispatch = useDispatch();
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+    };
+    useEffect(() => {
+      fetchAssignments();
+    }, []);
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const courseAssignments = assignments.filter((assignment:any) => assignment.course === cid);
     return (
       <div id="wd-assignments">
